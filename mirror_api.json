@@ -1,0 +1,230 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "cardosAnime_v20.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "old man, masterpice, forest:1.4",
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive promt"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "(worst quality, low quality:1.4)",
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative promt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "49",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "10": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP Set Last Layer"
+    }
+  },
+  "11": {
+    "inputs": {
+      "vae_name": "taesd"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "49": {
+    "inputs": {
+      "seed": 768543316848622,
+      "steps": 3,
+      "cfg": 1.5,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 0.3,
+      "model": [
+        "56",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "84",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "54": {
+    "inputs": {
+      "pixels": [
+        "91",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "55": {
+    "inputs": {
+      "lora_name": "LCM_LoRA_Weights_SD15.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "56": {
+    "inputs": {
+      "sampling": "lcm",
+      "zsnr": false,
+      "model": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingDiscrete",
+    "_meta": {
+      "title": "ModelSamplingDiscrete"
+    }
+  },
+  "83": {
+    "inputs": {
+      "path": "C:\\Users\\nikit\\mirror\\files\\p1el.png",
+      "save_sequence": "false",
+      "image_format": ".png",
+      "jpg_quality": 100,
+      "png_compression": 1,
+      "image": [
+        "88",
+        0
+      ]
+    },
+    "class_type": "SaveImagetoPath",
+    "_meta": {
+      "title": "Save Image to Path"
+    }
+  },
+  "84": {
+    "inputs": {
+      "delaytime": 0,
+      "latent": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "LatentDelay",
+    "_meta": {
+      "title": "LatentDelay"
+    }
+  },
+  "87": {
+    "inputs": {
+      "model_name": "4xLSDIRplusC.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "88": {
+    "inputs": {
+      "upscale_model": [
+        "87",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "91": {
+    "inputs": {
+      "image_path": "/workspace/files/in/kek.jpg"
+    },
+    "class_type": "LoadWebcamImage",
+    "_meta": {
+      "title": "Load Webcam Image"
+    }
+  },
+  "94": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "models": [
+    {
+        "name": "darkSushiMixMix_colorful.safetensors",
+        "settings": {
+          "denoise": 0.36,
+          "lora_model": 1.5,
+          "lora_clip": 1.5
+        }
+    },
+    {
+        "name": "duchaitenaiart_V453.safetensors",
+        "settings": {
+          "denoise": 0.36,
+          "lora_model": 1.5,
+          "lora_clip": 1.5
+        }
+    },
+    {
+        "name": "animatix_v1LCM.safetensors",
+        "settings": {
+          "denoise": 0.32,
+          "lora_model": 0.7,
+          "lora_clip": 0.7,
+          "promt" : "cartoon"
+        }
+    },
+    {
+        "name": "comiccraftLCM_beta4.safetensors",
+        "settings": {
+            "denoise": 0.35,
+            "lora_model": 0.7,
+            "lora_clip": 0.7,
+            "promt" : "cartoon"
+        }
+      },
+      {
+        "name": "disneyPixarCartoon_v10.safetensors",
+        "settings": {
+            "denoise": 0.35,
+            "lora_model": 1.6,
+            "lora_clip": 1
+        }
+      }
+    ]
+  }
+  
