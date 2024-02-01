@@ -1,7 +1,9 @@
+import os
+
 from workflow import Workflow
 from mirror import Mirror
 from syncer import *
-import os
+
 # General settings
 LOCAL_COMFYUI = True
 

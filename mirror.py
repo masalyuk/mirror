@@ -1,7 +1,8 @@
+import time
+
 import cv2
 import screeninfo
-import random
-import time
+
 from model import ModelCollection
 
 class MirrorStyle:

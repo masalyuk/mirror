@@ -1,5 +1,4 @@
 import json
-import websocket
 import urllib.request
 import urllib.parse
 import uuid
