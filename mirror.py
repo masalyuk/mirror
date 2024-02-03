@@ -131,7 +131,13 @@ class Mirror:
 
     def take_photo(self, save_path): 
         ret, frame = self.webcam.read()
-        cv2.imwrite(save_path, frame)
+
+        # Resize the image
+        new_width = 800
+        new_height = 600
+
+        resized_frame = cv2.resize(frame, (new_width, new_height))
+        cv2.imwrite(save_path, resized_frame)
 
     def send_photo_to_remote_server(self):
         self.syncer.send_to_remote()
