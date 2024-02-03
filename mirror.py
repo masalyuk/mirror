@@ -47,7 +47,6 @@ class MirrorStyle:
         if additional is not None:
             res_promt += ", " + additional
 
-        print(res_promt)
         self.wf.init_promt_pos_node(res_promt)
 
     def does_need_change(self, param):

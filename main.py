@@ -21,8 +21,8 @@ REMOTE_IN = '/workspace/files/in/in.jpg'
 REMOT_OUT = '/workspace/files/out/out.jpg'
 
 # PATH
-SAVE_CAMERA_IMAGE_PATH = '.\\files\\in\\in.jpg'
-SHOW_IMAGE_PATH = '.\\files\\out\\out.jpg'
+SAVE_CAMERA_IMAGE_PATH = 'in.jpg'
+SHOW_IMAGE_PATH = 'out.jpg'
 
 # WORKFLOW Settings
 COMFYUI_WF = 'mirror_api.json'
@@ -30,7 +30,7 @@ COMFYUI_WF = 'mirror_api.json'
 # Style settings
 KEEP_AGE_TIME_SEC = 5
 KEEP_BACKGROUND_TIME_SEC = 60
-KEEP_MODEL_TIME_SEC = 60
+KEEP_MODEL_TIME_SEC = 60 * 60 * 2
 
 # for ComfyUI better to specify absolute path
 WF_IN  = os.path.abspath(SAVE_CAMERA_IMAGE_PATH)  if LOCAL_COMFYUI else REMOTE_IN
