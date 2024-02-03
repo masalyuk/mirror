@@ -67,7 +67,7 @@ class MirrorStyle:
             
             settings = self.models[next_index]["settings"]
         
-            self.wf.init_ksampler_node(steps=2, denoise=settings["denoise"], cfg=1.7)
+            self.wf.init_ksampler_node(steps=4, denoise=settings["denoise"], cfg=1.7)
             self.wf.init_lora_loader_node(strength_model=settings["lora_model"], strength_clip=settings["lora_clip"])
             self.wf.init_checkpoint_loader_node(self.model_name)
     
@@ -93,7 +93,7 @@ class Mirror:
     def set_keep_background_time(self, dur):
         self.style.change_keep_time("back", dur)
 
-    def set_keep_background_time(self, dur):
+    def set_keep_model_time(self, dur):
         self.style.change_keep_time("model", dur)
 
     # image related functions
@@ -134,7 +134,7 @@ class Mirror:
         cv2.imwrite(save_path, frame)
 
     def send_photo_to_remote_server(self):
-        self.sync.send_to_remote()
+        self.syncer.send_to_remote()
 
     def reflect(self):
         self.take_photo(self.in_img)
@@ -144,6 +144,9 @@ class Mirror:
             
         #start process and wait result
         img = self.wf.send_and_wait_result()
+
+        if self.local_run is False:
+            self.syncer.copy_to_local()
         self.show_image(self.out_img, self.style.model_name)
 
     def run(self):

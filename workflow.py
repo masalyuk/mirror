@@ -1,7 +1,6 @@
 import json
 import urllib.request
 import urllib.parse
-import uuid
 import time
 
 # JSON Field NAME
@@ -23,10 +22,6 @@ class Workflow:
     def __init__(self, file, server_addr):
         self.wf = json.load(file)
         self.server_address = server_addr
-        self.ws = websocket.WebSocket()
-
-        client_id = str(uuid.uuid4())
-        self.ws.connect("ws://{}/ws?clientId={}".format(self.server_address, client_id))
 
     def queue_prompt(self):
         p = {"prompt": self.wf}
@@ -43,6 +38,7 @@ class Workflow:
 
     def send_and_wait_result(self):
         prompt_id = self.queue_prompt()['prompt_id']
+
         while True:
             if self.get_history(prompt_id).get(prompt_id) is not None:
                 break

@@ -1,7 +1,7 @@
 {
   "4": {
     "inputs": {
-      "ckpt_name": "cardosAnime_v20.safetensors"
+      "ckpt_name": "comiccraftLCM_beta4.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {

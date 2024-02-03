@@ -18,7 +18,7 @@ class Syncer:
 
         self.ssh_client = paramiko.SSHClient()
         self.ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        self.ssh_client.connect(self.ip, self.port, username=user, pkey=paramiko.RSAKey.from_private_key_file(KEY_PATH))
+        self.ssh_client.connect(self.ip, self.port, username=user, pkey=paramiko.RSAKey.from_private_key_file(KEY_PATH), banner_timeout=20000, timeout=200000, auth_timeout=2000)
 
     def send_to_remote(self):
         with SCPClient(self.ssh_client.get_transport()) as scp:
@@ -30,4 +30,3 @@ class Syncer:
                 scp.get(self.remote_out, self.local_out)
         except:
             pass
-
