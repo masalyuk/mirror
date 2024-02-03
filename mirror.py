@@ -147,7 +147,7 @@ class Mirror:
 
         if self.local_run is False:
             self.syncer.copy_to_local()
-        self.show_image(self.out_img, self.style.model_name)
+        self.show_image(self.out_img)
 
     def run(self):
 
